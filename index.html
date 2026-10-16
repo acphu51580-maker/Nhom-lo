@@ -10,21 +10,21 @@ body{background:#fff;color:#111;line-height:1.6;-webkit-font-smoothing:antialias
 header{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-bottom:1px solid #eaeaea;z-index:100;padding:16px 24px;display:flex;justify-content:space-between;align-items:center}
 .logo{font-size:20px;font-weight:800;letter-spacing:-.5px;cursor:pointer}
 .logo span{color:#666;font-weight:400}
-.login-btn{padding:8px 16px;background:#111;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600;transition:.2s}
+.login-btn{padding:8px 16px;background:#111;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600}
 .login-btn:hover{background:#333}
 .user-btn{padding:8px 16px;background:#f5f5f5;color:#111;border:1px solid #eaeaea;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600}
-.user-btn:hover{background:#111;color:#fff;border-color:#111}
+.user-btn:hover{background:#111;color:#fff}
 main{padding-top:80px}
 section{padding:80px 24px;max-width:1200px;margin:0 auto}
-.hero{padding:120px 24px 80px;text-align:center;position:relative}
-.hero .dna-icon{font-size:80px;margin-bottom:20px;animation:spin 8s linear infinite}
+.hero{padding:120px 24px 60px;text-align:center;position:relative}
+.hero .dna-icon{font-size:80px;margin-bottom:20px;display:inline-block;animation:spin 8s linear infinite}
 @keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
 .hero h1{font-size:60px;font-weight:900;letter-spacing:-2.5px;line-height:1.05;margin-bottom:20px}
 .hero h1 span{color:#999}
-.hero p{font-size:18px;color:#666;max-width:640px;margin:0 auto 32px;line-height:1.7}
-.hero .quote{font-style:italic;color:#999;font-size:15px;margin-bottom:32px;border-left:3px solid #111;padding-left:16px;text-align:left;max-width:600px;margin-left:auto;margin-right:auto;margin-bottom:32px}
+.hero p{font-size:18px;color:#666;max-width:640px;margin:0 auto 20px}
+.hero .quote{font-style:italic;color:#999;font-size:15px;border-left:3px solid #111;padding-left:16px;text-align:left;max-width:600px;margin:0 auto 32px}
 .hero .cta{display:inline-flex;gap:12px;flex-wrap:wrap;justify-content:center}
-.btn{padding:14px 28px;background:#111;color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:15px;font-weight:600;text-decoration:none;transition:.2s}
+.btn{padding:14px 28px;background:#111;color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:15px;font-weight:600;text-decoration:none;transition:.2s;display:inline-block}
 .btn:hover{background:#333;transform:translateY(-2px)}
 .btn-sec{background:#fff;color:#111;border:1.5px solid #111}
 .btn-sec:hover{background:#111;color:#fff}
@@ -36,60 +36,84 @@ h2 span{color:#999}
 
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin:40px 0;padding:32px;background:#fafafa;border-radius:16px;border:1px solid #eaeaea}
 .stats .item{text-align:center}
-.stats .num{font-size:32px;font-weight:900;color:#111;letter-spacing:-1px}
+.stats .num{font-size:32px;font-weight:900;letter-spacing:-1px}
 .stats .lbl{font-size:13px;color:#666;margin-top:4px}
 
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px}
-.card{background:#fff;border:1px solid #eaeaea;border-radius:12px;overflow:hidden;transition:.3s;cursor:pointer}
-.card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.08);border-color:#111}
-.card .img{width:100%;aspect-ratio:4/3;background:#f5f5f5;overflow:hidden}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
+.card{background:#fff;border:1px solid #eaeaea;border-radius:12px;overflow:hidden;transition:.3s;position:relative}
+.card:hover{box-shadow:0 12px 32px rgba(0,0,0,.08);border-color:#111}
+.card .img{width:100%;aspect-ratio:4/3;background:#f0f0f0;overflow:hidden;position:relative}
 .card .img img{width:100%;height:100%;object-fit:cover;display:block}
 .card .body{padding:20px}
 .card h3{font-size:17px;font-weight:700;margin-bottom:6px}
 .card p{font-size:14px;color:#666;line-height:1.6}
 
+/* 4 BASE COLORS */
+.bases{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:32px 0}
+.base{border-radius:14px;padding:24px;text-align:center;color:#fff;font-weight:800;transition:.2s}
+.base:hover{transform:translateY(-4px)}
+.base .letter{font-size:48px;line-height:1;margin-bottom:8px}
+.base .name{font-size:14px;opacity:.95;letter-spacing:.5px}
+.base .note{font-size:11px;opacity:.8;margin-top:4px;font-weight:500}
+.base-a{background:linear-gradient(135deg,#ef4444,#b91c1c)}
+.base-t{background:linear-gradient(135deg,#3b82f6,#1d4ed8)}
+.base-g{background:linear-gradient(135deg,#22c55e,#15803d)}
+.base-c{background:linear-gradient(135deg,#eab308,#a16207)}
+
 .timeline{padding:20px 0}
 .tl-item{display:flex;gap:20px;padding:20px 0;border-bottom:1px solid #eaeaea}
 .tl-item:last-child{border-bottom:none}
-.tl-year{font-size:20px;font-weight:900;color:#111;min-width:80px;letter-spacing:-.5px}
+.tl-year{font-size:20px;font-weight:900;min-width:80px;letter-spacing:-.5px}
 .tl-content h4{font-size:16px;font-weight:700;margin-bottom:4px}
 .tl-content p{font-size:14px;color:#666}
 
-footer{background:#111;color:#fff;padding:60px 24px 30px;text-align:center}
-footer h3{font-size:24px;font-weight:800;margin-bottom:8px;letter-spacing:-.5px}
-footer p{color:#999;font-size:14px;margin-bottom:24px}
-footer .fname{font-size:13px;color:#666;margin-top:24px}
+/* PRESENTERS */
+.presenters{background:#111;color:#fff;padding:60px 24px 40px;text-align:center;margin-top:60px}
+.presenters h3{font-size:24px;font-weight:800;margin-bottom:8px;letter-spacing:-.5px}
+.presenters > p{color:#999;font-size:14px;margin-bottom:32px}
+.presenter-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px;max-width:900px;margin:0 auto}
+.presenter{background:#1f1f1f;padding:24px;border-radius:12px;text-align:center;border:1px solid #2a2a2a;transition:.2s}
+.presenter:hover{background:#2a2a2a;border-color:#444}
+.presenter .avatar{width:64px;height:64px;border-radius:50%;background:#333;display:flex;align-items:center;justify-content:center;font-size:28px;margin:0 auto 12px}
+.presenter .pname{font-size:16px;font-weight:700;margin-bottom:4px}
+.presenter .prole{font-size:12px;color:#999}
+
+footer{background:#0a0a0a;color:#666;padding:24px;text-align:center;font-size:13px}
+
+/* EDIT MODE */
+.edit-mode .editable{position:relative;cursor:pointer;transition:.2s}
+.edit-mode .editable:hover{outline:2px dashed #3b82f6;outline-offset:4px}
+.edit-mode .editable::after{content:'✏️';position:absolute;top:-8px;right:-8px;background:#3b82f6;color:#fff;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;opacity:0;transition:.2s;z-index:10}
+.edit-mode .editable:hover::after{opacity:1}
+.edit-mode .card-add{display:flex !important}
+.card-add{display:none;align-items:center;justify-content:center;background:#fafafa;border:2px dashed #ddd;border-radius:12px;min-height:280px;cursor:pointer;color:#666;font-weight:600;font-size:15px;flex-direction:column;gap:8px}
+.card-add:hover{border-color:#111;color:#111;background:#f5f5f5}
+.card-add .plus{font-size:40px}
+.card-delete{position:absolute;top:8px;right:8px;background:#dc2626;color:#fff;border:none;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:14px;display:none;z-index:20}
+.edit-mode .card-delete{display:flex;align-items:center;justify-content:center}
+
+.edit-banner{position:fixed;top:70px;left:50%;transform:translateX(-50%);background:#3b82f6;color:#fff;padding:10px 20px;border-radius:30px;font-size:13px;font-weight:600;z-index:99;box-shadow:0 4px 12px rgba(59,130,246,.3);display:none}
+.edit-banner.show{display:block}
 
 .mbg{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:999;padding:16px}
 .mbg.show{display:flex}
-.mod{background:#fff;border-radius:16px;padding:28px;max-width:480px;width:100%;max-height:90vh;overflow-y:auto}
-.mod h2{font-size:22px;margin-bottom:18px;letter-spacing:-.3px}
-.mod input,.mod textarea,.mod select{width:100%;padding:12px 14px;border:1.5px solid #eaeaea;border-radius:8px;font-size:14px;margin-bottom:12px;font-family:inherit;background:#fff}
-.mod input:focus,.mod textarea:focus,.mod select:focus{outline:none;border-color:#111}
+.mod{background:#fff;border-radius:16px;padding:24px;max-width:460px;width:100%;max-height:90vh;overflow-y:auto}
+.mod h2{font-size:20px;margin-bottom:16px;letter-spacing:-.3px}
+.mod input,.mod textarea{width:100%;padding:12px 14px;border:1.5px solid #eaeaea;border-radius:8px;font-size:14px;margin-bottom:12px;font-family:inherit}
+.mod input:focus,.mod textarea:focus{outline:none;border-color:#111}
 .mod textarea{min-height:80px;resize:vertical}
-.mbtn{width:100%;padding:12px;background:#111;color:#fff;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-size:14px;margin-top:4px;transition:.2s}
+.mbtn{width:100%;padding:12px;background:#111;color:#fff;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-size:14px;margin-top:4px}
 .mbtn:hover{background:#333}
 .mbtn-sec{background:#fff;color:#111;border:1.5px solid #eaeaea}
-.mbtn-sec:hover{background:#f5f5f5;color:#111}
-.mbtn-danger{background:#fff;color:#dc2626;border:1.5px solid #fecaca}
-.mbtn-danger:hover{background:#fef2f2}
-.tabs{display:flex;gap:8px;margin-bottom:20px;border-bottom:1px solid #eaeaea;padding-bottom:12px;flex-wrap:wrap}
-.tabs button{padding:8px 16px;background:transparent;border:none;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600;color:#666}
-.tabs button.active{background:#111;color:#fff}
-.item-row{background:#fafafa;padding:14px;border-radius:10px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;gap:10px;border:1px solid #eaeaea}
-.item-row .info{flex:1;min-width:0}
-.item-row h4{font-size:14px;font-weight:700;margin-bottom:4px}
-.item-row p{font-size:12px;color:#888;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.item-row .acts{display:flex;gap:6px;flex-shrink:0}
-.item-row button{padding:6px 12px;border:none;border-radius:6px;cursor:pointer;font-size:12px;font-weight:600}
-.ib{background:#111;color:#fff}
-.ib-red{background:#dc2626;color:#fff}
-.upload-box{background:#fafafa;border:2px dashed #ddd;border-radius:10px;padding:16px;text-align:center;cursor:pointer;margin-bottom:12px;font-size:13px;color:#666;transition:.2s}
+.mbtn-sec:hover{background:#f5f5f5}
+.upload-box{background:#fafafa;border:2px dashed #ddd;border-radius:10px;padding:14px;text-align:center;cursor:pointer;margin-bottom:12px;font-size:13px;color:#666}
 .upload-box:hover{border-color:#111;color:#111}
+#itemPreview{width:100%;border-radius:8px;margin-bottom:12px;display:none}
+
 .ntf{position:fixed;top:80px;right:24px;background:#111;color:#fff;padding:14px 20px;border-radius:10px;font-weight:600;font-size:13px;z-index:9999;animation:sl .3s}
 .ntf.err{background:#dc2626}
 @keyframes sl{from{transform:translateX(400px);opacity:0}to{transform:translateX(0);opacity:1}}
-.empty{text-align:center;color:#999;padding:60px 20px;font-style:italic;font-size:14px}
+
 @media(max-width:640px){
   .hero h1{font-size:38px;letter-spacing:-1.5px}
   .hero p{font-size:16px}
@@ -98,6 +122,9 @@ footer .fname{font-size:13px;color:#666;margin-top:24px}
   .stats{grid-template-columns:repeat(2,1fr);padding:20px}
   .stats .num{font-size:24px}
   .tl-item{flex-direction:column;gap:6px}
+  .bases{grid-template-columns:repeat(2,1fr);gap:12px}
+  .base{padding:16px}
+  .base .letter{font-size:36px}
 }
 </style>
 </head>
@@ -108,15 +135,17 @@ footer .fname{font-size:13px;color:#666;margin-top:24px}
   <div id="authArea"><button class="login-btn" onclick="showLogin()">🔐 Đăng nhập</button></div>
 </header>
 
+<div class="edit-banner" id="editBanner">✏️ Chế độ chỉnh sửa — Click vào bất kỳ chỗ nào để sửa</div>
+
 <main>
   <section class="hero">
     <div class="dna-icon">🧬</div>
-    <h1>DNA <span>& Sự sống</span></h1>
-    <p>Khám phá cấu trúc, vai trò và ứng dụng của <b>DNA</b> — phân tử mang thông tin di truyền của mọi sinh vật sống trên Trái Đất.</p>
+    <h1 id="heroTitle" class="editable-t">DNA <span>& Sự sống</span></h1>
+    <p id="heroSub" class="editable-t">Khám phá cấu trúc, vai trò và ứng dụng của <b>DNA</b> — phân tử mang thông tin di truyền của mọi sinh vật sống trên Trái Đất.</p>
     <div class="quote">"DNA là cuốn sách hướng dẫn vĩ đại nhất mà tự nhiên đã viết nên — chứa đựng toàn bộ bí mật của sự sống."</div>
     <div class="cta">
-      <a href="#products" class="btn">Khám phá DNA</a>
-      <a href="#works" class="btn btn-sec">Ứng dụng</a>
+      <a href="#bases" class="btn">4 Base DNA</a>
+      <a href="#products" class="btn btn-sec">Khám phá</a>
     </div>
   </section>
 
@@ -127,6 +156,35 @@ footer .fname{font-size:13px;color:#666;margin-top:24px}
       <div class="item"><div class="num">4</div><div class="lbl">Loại base (A-T-G-C)</div></div>
       <div class="item"><div class="num">99.9%</div><div class="lbl">DNA giống nhau giữa người</div></div>
     </div>
+  </section>
+
+  <section id="bases">
+    <div class="divider"></div>
+    <h2>4 Base <span>/ DNA</span></h2>
+    <p class="subtitle">DNA được cấu tạo từ 4 loại base nitơ — mỗi loại có màu đặc trưng và quy tắc ghép cặp riêng</p>
+    <div class="bases">
+      <div class="base base-a">
+        <div class="letter">A</div>
+        <div class="name">Adenine</div>
+        <div class="note">Ghép với T</div>
+      </div>
+      <div class="base base-t">
+        <div class="letter">T</div>
+        <div class="name">Thymine</div>
+        <div class="note">Ghép với A</div>
+      </div>
+      <div class="base base-g">
+        <div class="letter">G</div>
+        <div class="name">Guanine</div>
+        <div class="note">Ghép với C</div>
+      </div>
+      <div class="base base-c">
+        <div class="letter">C</div>
+        <div class="name">Cytosine</div>
+        <div class="note">Ghép với G</div>
+      </div>
+    </div>
+    <p style="text-align:center;color:#666;font-size:14px;font-style:italic">Quy tắc bổ sung: A — T (2 liên kết H), G — C (3 liên kết H)</p>
   </section>
 
   <section id="products">
@@ -156,45 +214,53 @@ footer .fname{font-size:13px;color:#666;margin-top:24px}
   </section>
 </main>
 
+<div class="presenters">
+  <h3>👥 Người thuyết trình</h3>
+  <p>Nhóm thực hiện bài thuyết trình về DNA</p>
+  <div class="presenter-list" id="presenterList"></div>
+</div>
+
 <footer>
-  <h3>🧬 DNA.Life</h3>
-  <p>Khám phá phân tử của sự sống · Bài thuyết trình Sinh học</p>
-  <div class="fname">© 2026 · Thực hiện bởi <b style="color:#fff">Phucdz</b></div>
+  <p>© 2026 · Bài thuyết trình Sinh học · <b style="color:#fff">DNA.Life</b></p>
 </footer>
 
+<!-- LOGIN -->
 <div class="mbg" id="loginModal"><div class="mod">
-<h2>🔐 Đăng nhập Admin</h2>
+<h2>🔐 Đăng nhập</h2>
 <input id="loginUser" placeholder="Tên đăng nhập">
 <input id="loginPass" type="password" placeholder="Mật khẩu">
 <button class="mbtn" onclick="doLogin()">Đăng nhập</button>
 <button class="mbtn mbtn-sec" onclick="closeM('loginModal')" style="margin-top:8px">Hủy</button>
 </div></div>
 
-<div class="mbg" id="adminModal"><div class="mod" style="max-width:560px">
-<h2>⚙️ Admin Panel</h2>
-<div class="tabs">
-<button onclick="showTab('prod')" id="tbProd" class="active">🧬 Kiến thức</button>
-<button onclick="showTab('work')" id="tbWork">🎨 Ứng dụng</button>
-<button onclick="showTab('info')" id="tbInfo">📝 Thông tin</button>
-<button onclick="showTab('acc')" id="tbAcc">🔑 Tài khoản</button>
-</div>
-<div id="tabContent"></div>
-<div style="display:flex;gap:8px;margin-top:16px">
-<button class="mbtn mbtn-sec" onclick="logout()" style="flex:1">🚪 Đăng xuất</button>
-<button class="mbtn mbtn-sec" onclick="closeM('adminModal')" style="flex:1">Đóng</button>
-</div>
-</div></div>
-
+<!-- EDIT ITEM -->
 <div class="mbg" id="itemModal"><div class="mod">
 <h2 id="itemTitle">✏️ Chỉnh sửa</h2>
 <div class="upload-box" onclick="document.getElementById('itemFile').click()">📷 Chọn ảnh từ máy</div>
 <input type="file" id="itemFile" accept="image/*" style="display:none" onchange="uploadItemImg(this)">
 <input id="itemImg" placeholder="Hoặc dán link ảnh">
-<img id="itemPreview" style="width:100%;border-radius:8px;margin-bottom:12px;display:none">
+<img id="itemPreview">
 <input id="itemName" placeholder="Tên">
 <textarea id="itemDesc" placeholder="Mô tả"></textarea>
 <button class="mbtn" onclick="saveItem()">💾 Lưu</button>
 <button class="mbtn mbtn-sec" onclick="closeM('itemModal')" style="margin-top:8px">Hủy</button>
+</div></div>
+
+<!-- EDIT TEXT -->
+<div class="mbg" id="textModal"><div class="mod">
+<h2>✏️ Sửa nội dung</h2>
+<textarea id="textContent" style="min-height:120px"></textarea>
+<button class="mbtn" onclick="saveText()">💾 Lưu</button>
+<button class="mbtn mbtn-sec" onclick="closeM('textModal')" style="margin-top:8px">Hủy</button>
+</div></div>
+
+<!-- EDIT PRESENTER -->
+<div class="mbg" id="presenterModal"><div class="mod">
+<h2 id="prTitle">✏️ Người thuyết trình</h2>
+<input id="prName" placeholder="Tên">
+<input id="prRole" placeholder="Vai trò (VD: Thuyết trình viên, Mô hình, MC...)">
+<button class="mbtn" onclick="savePresenter()">💾 Lưu</button>
+<button class="mbtn mbtn-sec" onclick="closeM('presenterModal')" style="margin-top:8px">Hủy</button>
 </div></div>
 
 <script type="module">
@@ -212,18 +278,21 @@ const cfg = {
 };
 const IMG_KEY = "11fa26a3d2a300961577fa631bfc603c";
 const DEF_USER = "phucdz", DEF_PASS = "phc51580";
-const DB = "dna_site_v1", SK = "dna_session";
+const DB = "dna_site_v2", SK = "dna_session_v2";
 
 const app = initializeApp(cfg);
 const db = getDatabase(app);
 
 let isAdmin = false;
-let currentTab = 'prod';
 let editingId = null;
 let editingType = 'product';
+let editingText = '';
+let editingPresenterId = null;
 let products = [];
 let works = [];
-let siteInfo = { title:"DNA.Life", hero:"DNA & Sự sống", sub:"Khám phá phân tử của sự sống", adminUser:DEF_USER, adminPass:DEF_PASS };
+let presenters = [];
+let texts = { heroTitle:"DNA & Sự sống", heroSub:"Khám phá cấu trúc, vai trò và ứng dụng của DNA — phân tử mang thông tin di truyền của mọi sinh vật sống trên Trái Đất." };
+let siteInfo = { adminUser:DEF_USER, adminPass:DEF_PASS };
 
 window.scrollTop = () => window.scrollTo({top:0,behavior:'smooth'});
 window.notif = (msg, err=false) => {
@@ -235,67 +304,107 @@ window.notif = (msg, err=false) => {
 };
 window.closeM = (id) => document.getElementById(id).classList.remove('show');
 
-// DATA MẪU VỀ DNA
+// ẢNH DNA & SINH HỌC CHUẨN
 const SEED_PRODUCTS = [
-  { name:"Cấu trúc xoắn kép", desc:"DNA có cấu trúc xoắn kép gồm 2 sợi polynucleotide song song, ngược chiều nhau. Mỗi sợi gồm các nucleotide liên kết với nhau bằng liên kết phosphodiester.", img:"https://images.unsplash.com/photo-1628595351029-c2bf17511435?w=800&q=80" },
-  { name:"4 loại Base Nitơ", desc:"DNA có 4 loại base: Adenine (A), Thymine (T), Guanine (G), Cytosine (C). Nguyên tắc bổ sung: A liên kết với T bằng 2 liên kết H, G liên kết với C bằng 3 liên kết H.", img:"https://images.unsplash.com/photo-1637929476734-bd7f5f78e40a?w=800&q=80" },
-  { name:"Vai trò của DNA", desc:"DNA có 3 vai trò chính: (1) Lưu trữ thông tin di truyền, (2) Điều khiển mọi hoạt động sống của tế bào thông qua tổng hợp protein, (3) Tự nhân đôi để truyền thông tin cho thế hệ sau.", img:"https://images.unsplash.com/photo-1636893461146-35aa9bb0d8f7?w=800&q=80" },
-  { name:"Quá trình nhân đôi", desc:"DNA nhân đôi theo nguyên tắc bán bảo toàn: mỗi sợi đơn làm khuôn để tổng hợp sợi mới. Enzyme helicase tách 2 sợi, DNA polymerase tổng hợp sợi mới theo nguyên tắc bổ sung.", img:"https://images.unsplash.com/photo-1614935151651-0bea6508db6b?w=800&q=80" }
+  { name:"Cấu trúc xoắn kép", desc:"DNA có cấu trúc xoắn kép gồm 2 sợi polynucleotide song song, ngược chiều nhau. Mỗi sợi gồm các nucleotide liên kết bằng liên kết phosphodiester.", img:"https://images.unsplash.com/photo-1628595351029-c2bf17511435?w=800&q=80" },
+  { name:"4 loại Base Nitơ", desc:"DNA có 4 loại base: Adenine (A) — Thymine (T) — Guanine (G) — Cytosine (C). Nguyên tắc bổ sung: A ghép với T (2 liên kết H), G ghép với C (3 liên kết H).", img:"https://images.unsplash.com/photo-1583912267550-d6c2ac3196c0?w=800&q=80" },
+  { name:"Vai trò của DNA", desc:"DNA có 3 vai trò chính: (1) Lưu trữ thông tin di truyền, (2) Điều khiển mọi hoạt động sống thông qua tổng hợp protein, (3) Tự nhân đôi để truyền thông tin cho thế hệ sau.", img:"https://images.unsplash.com/photo-1637929476734-bd7f5f78e40a?w=800&q=80" },
+  { name:"Quá trình nhân đôi", desc:"DNA nhân đôi theo nguyên tắc bán bảo toàn: mỗi sợi đơn làm khuôn để tổng hợp sợi mới. Enzyme helicase tách 2 sợi, DNA polymerase tổng hợp sợi mới.", img:"https://images.unsplash.com/photo-1614935151651-0bea6508db6b?w=800&q=80" }
 ];
 const SEED_WORKS = [
-  { name:"Y học & Xét nghiệm ADN", desc:"Xác định huyết thống, tầm soát bệnh di truyền, chẩn đoán ung thư, điều trị gen — ứng dụng quan trọng nhất của DNA trong y học hiện đại.", img:"https://images.unsplash.com/photo-1583912267550-d6c2ac3196c0?w=800&q=80" },
-  { name:"Khoa học hình sự", desc:"ADN là bằng chứng quan trọng trong điều tra tội phạm. Chỉ cần một sợi tóc, vết máu hay tế bào nhỏ cũng đủ để xác định danh tính.", img:"https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80" },
+  { name:"Y học & Xét nghiệm ADN", desc:"Xác định huyết thống, tầm soát bệnh di truyền, chẩn đoán ung thư, điều trị gen — ứng dụng quan trọng nhất của DNA trong y học hiện đại.", img:"https://images.unsplash.com/photo-1579154204601-01588f351e67?w=800&q=80" },
+  { name:"Khoa học hình sự", desc:"ADN là bằng chứng quan trọng trong điều tra tội phạm. Chỉ cần một sợi tóc, vết máu hay tế bào nhỏ cũng đủ để xác định danh tính.", img:"https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800&q=80" },
   { name:"Nông nghiệp & Thực phẩm", desc:"Lai tạo giống cây trồng, vật nuôi năng suất cao. Công nghệ gen tạo ra giống kháng bệnh, chịu hạn, cho năng suất vượt trội.", img:"https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=800&q=80" },
   { name:"Nghiên cứu tiến hóa", desc:"So sánh ADN giữa các loài giúp truy tìm nguồn gốc, mối quan hệ họ hàng và lịch sử tiến hóa của sự sống trên Trái Đất.", img:"https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&q=80" }
 ];
+const SEED_PRESENTERS = [
+  { name:"Phuc", role:"Thuyết trình viên chính" },
+  { name:"Huy", role:"Mô hình & minh họa" },
+  { name:"Thư", role:"MC & dẫn dắt" }
+];
 
-// LISTENERS
+// LISTEN
 onValue(ref(db, DB+'/site'), (s) => {
   const d = s.val();
   if (d) siteInfo = {...siteInfo, ...d};
   renderHeader();
 });
+onValue(ref(db, DB+'/texts'), (s) => {
+  const d = s.val();
+  if (d) texts = {...texts, ...d};
+  renderTexts();
+});
 onValue(ref(db, DB+'/products'), (s) => {
   const d = s.val();
   products = d ? Object.entries(d).map(([id,p])=>({id,...p})).sort((a,b)=>(a.order||0)-(b.order||0)) : [];
   renderProducts();
-  if (currentTab==='prod' && document.getElementById('adminModal').classList.contains('show')) renderTab();
 });
 onValue(ref(db, DB+'/works'), (s) => {
   const d = s.val();
   works = d ? Object.entries(d).map(([id,w])=>({id,...w})).sort((a,b)=>(a.order||0)-(b.order||0)) : [];
   renderWorks();
-  if (currentTab==='work' && document.getElementById('adminModal').classList.contains('show')) renderTab();
+});
+onValue(ref(db, DB+'/presenters'), (s) => {
+  const d = s.val();
+  presenters = d ? Object.entries(d).map(([id,p])=>({id,...p})).sort((a,b)=>(a.order||0)-(b.order||0)) : [];
+  renderPresenters();
 });
 
 function renderHeader(){
-  document.querySelector('.hero h1').innerHTML = (siteInfo.hero||'DNA & Sự sống').replace('&','<span>&</span>');
-  document.querySelector('.hero p').innerHTML = siteInfo.sub || '';
-  document.title = siteInfo.title || 'DNA';
-  document.querySelector('.logo').innerHTML = (siteInfo.title||'DNA.Life').replace('.','<span>.</span>');
   const area = document.getElementById('authArea');
-  if (isAdmin) area.innerHTML = `<button class="user-btn" onclick="openAdmin()">⚙️ Admin Panel</button>`;
+  if (isAdmin) area.innerHTML = `<button class="user-btn" onclick="logout()">🚪 Đăng xuất (${siteInfo.adminUser||DEF_USER})</button>`;
   else area.innerHTML = `<button class="login-btn" onclick="showLogin()">🔐 Đăng nhập</button>`;
+}
+
+function renderTexts(){
+  document.getElementById('heroTitle').innerHTML = (texts.heroTitle||'').replace('&','<span>&</span>');
+  document.getElementById('heroSub').innerHTML = texts.heroSub||'';
+  document.title = (texts.heroTitle||'DNA').replace(/<[^>]+>/g,'');
 }
 
 function renderProducts(){
   const el = document.getElementById('productGrid');
-  if (!products.length) { el.innerHTML = '<div class="empty">Chưa có nội dung</div>'; return; }
-  el.innerHTML = products.map(p => `
+  let html = products.map(p => `
     <div class="card">
-      <div class="img"><img src="${p.img||''}" onerror="this.style.display='none'"></div>
-      <div class="body"><h3>${p.name||''}</h3><p>${p.desc||''}</p></div>
+      <button class="card-delete" onclick="delItem('${p.id}','product')">✕</button>
+      <div class="img" onclick="openItem('${p.id}','product')">${p.img?`<img src="${p.img}" onerror="this.parentElement.style.background='#eee'">`:''}</div>
+      <div class="body" onclick="openItem('${p.id}','product')">
+        <h3>${p.name||''}</h3><p>${p.desc||''}</p>
+      </div>
     </div>`).join('');
+  if (isAdmin) html += `<div class="card-add" onclick="openItem(null,'product')"><div class="plus">➕</div><div>Thêm kiến thức</div></div>`;
+  el.innerHTML = html || '<div style="text-align:center;color:#999;padding:40px">Chưa có nội dung</div>';
 }
 
 function renderWorks(){
   const el = document.getElementById('workGrid');
-  if (!works.length) { el.innerHTML = '<div class="empty">Chưa có nội dung</div>'; return; }
-  el.innerHTML = works.map(w => `
+  let html = works.map(w => `
     <div class="card">
-      <div class="img"><img src="${w.img||''}" onerror="this.style.display='none'"></div>
-      <div class="body"><h3>${w.name||''}</h3><p>${w.desc||''}</p></div>
+      <button class="card-delete" onclick="delItem('${w.id}','work')">✕</button>
+      <div class="img" onclick="openItem('${w.id}','work')">${w.img?`<img src="${w.img}" onerror="this.parentElement.style.background='#eee'">`:''}</div>
+      <div class="body" onclick="openItem('${w.id}','work')">
+        <h3>${w.name||''}</h3><p>${w.desc||''}</p>
+      </div>
     </div>`).join('');
+  if (isAdmin) html += `<div class="card-add" onclick="openItem(null,'work')"><div class="plus">➕</div><div>Thêm ứng dụng</div></div>`;
+  el.innerHTML = html || '<div style="text-align:center;color:#999;padding:40px">Chưa có nội dung</div>';
+}
+
+function renderPresenters(){
+  const el = document.getElementById('presenterList');
+  let html = presenters.map(p => `
+    <div class="presenter" onclick="${isAdmin?`openPresenter('${p.id}')`:''}">
+      <div class="avatar">👤</div>
+      <div class="pname">${p.name||''}</div>
+      <div class="prole">${p.role||''}</div>
+      ${isAdmin?`<button onclick="event.stopPropagation();delPresenter('${p.id}')" style="margin-top:8px;padding:4px 10px;background:#dc2626;color:#fff;border:none;border-radius:6px;font-size:11px;cursor:pointer">Xóa</button>`:''}
+    </div>`).join('');
+  if (isAdmin) html += `<div class="presenter" onclick="openPresenter(null)" style="cursor:pointer;border-style:dashed">
+      <div class="avatar" style="background:transparent;border:2px dashed #444">➕</div>
+      <div class="pname">Thêm người</div>
+      <div class="prole">Thuyết trình viên</div>
+    </div>`;
+  el.innerHTML = html || '<p style="color:#666">Chưa có người thuyết trình</p>';
 }
 
 // AUTH
@@ -313,79 +422,72 @@ window.doLogin = () => {
   localStorage.setItem(SK,'1');
   isAdmin = true;
   closeM('loginModal');
+  document.body.classList.add('edit-mode');
+  document.getElementById('editBanner').classList.add('show');
   renderHeader();
-  window.notif('👑 Chào Admin!');
-  setTimeout(() => { document.getElementById('adminModal').classList.add('show'); showTab('prod'); }, 300);
+  renderProducts();
+  renderWorks();
+  renderPresenters();
+  setupEditableTexts();
+  window.notif('👑 Chế độ chỉnh sửa đã bật!');
 };
 window.logout = () => {
   localStorage.removeItem(SK);
   isAdmin = false;
-  closeM('adminModal');
+  document.body.classList.remove('edit-mode');
+  document.getElementById('editBanner').classList.remove('show');
   renderHeader();
+  renderProducts();
+  renderWorks();
+  renderPresenters();
+  setupEditableTexts();
   window.notif('Đã đăng xuất');
 };
-window.openAdmin = () => { document.getElementById('adminModal').classList.add('show'); showTab('prod'); };
-if (localStorage.getItem(SK)==='1') isAdmin = true;
+if (localStorage.getItem(SK)==='1') {
+  isAdmin = true;
+  document.body.classList.add('edit-mode');
+  setTimeout(() => {
+    document.getElementById('editBanner').classList.add('show');
+    setupEditableTexts();
+  }, 100);
+}
 
-window.showTab = (t) => {
-  currentTab = t;
-  ['prod','work','info','acc'].forEach(x => {
-    const el = document.getElementById('tb'+x.charAt(0).toUpperCase()+x.slice(1));
-    if (el) el.classList.toggle('active', x===t);
-  });
-  renderTab();
-};
-
-function renderTab(){
-  const c = document.getElementById('tabContent');
-  if (currentTab==='prod') {
-    c.innerHTML = `
-      <button class="mbtn" onclick="openItem(null,'product')" style="margin-bottom:16px">➕ Thêm kiến thức</button>
-      ${!products.length?'<div class="empty">Chưa có</div>':products.map(p=>`
-        <div class="item-row">
-          <div class="info"><h4>${p.name||''}</h4><p>${p.desc||''}</p></div>
-          <div class="acts">
-            <button class="ib" onclick="openItem('${p.id}','product')">✏️</button>
-            <button class="ib-red" onclick="delItem('${p.id}','product')">🗑</button>
-          </div>
-        </div>`).join('')}`;
-  } else if (currentTab==='work') {
-    c.innerHTML = `
-      <button class="mbtn" onclick="openItem(null,'work')" style="margin-bottom:16px">➕ Thêm ứng dụng</button>
-      ${!works.length?'<div class="empty">Chưa có</div>':works.map(w=>`
-        <div class="item-row">
-          <div class="info"><h4>${w.name||''}</h4><p>${w.desc||''}</p></div>
-          <div class="acts">
-            <button class="ib" onclick="openItem('${w.id}','work')">✏️</button>
-            <button class="ib-red" onclick="delItem('${w.id}','work')">🗑</button>
-          </div>
-        </div>`).join('')}`;
-  } else if (currentTab==='info') {
-    c.innerHTML = `
-      <p style="font-size:13px;color:#666;margin-bottom:14px">Sửa tiêu đề và mô tả trang chủ</p>
-      <input id="infoTitle" placeholder="Tên web" value="${siteInfo.title||''}">
-      <input id="infoHero" placeholder="Tiêu đề chính" value="${siteInfo.hero||''}">
-      <textarea id="infoSub" placeholder="Mô tả ngắn (có thể dùng HTML)">${siteInfo.sub||''}</textarea>
-      <button class="mbtn" onclick="saveInfo()">💾 Lưu</button>`;
-  } else if (currentTab==='acc') {
-    c.innerHTML = `
-      <p style="font-size:13px;color:#666;margin-bottom:14px">Đổi tài khoản admin</p>
-      <div style="background:#fafafa;padding:12px;border-radius:8px;margin-bottom:14px;font-size:13px">
-        <p style="margin-bottom:4px">Tên hiện tại: <b>${siteInfo.adminUser||DEF_USER}</b></p>
-        <p>Mật khẩu: <b>${'•'.repeat((siteInfo.adminPass||DEF_PASS).length)}</b></p>
-      </div>
-      <input id="newUser" placeholder="Tên đăng nhập mới">
-      <input id="oldPass" type="password" placeholder="Mật khẩu cũ">
-      <input id="newPass" type="password" placeholder="Mật khẩu mới">
-      <input id="confPass" type="password" placeholder="Nhập lại mật khẩu mới">
-      <button class="mbtn" onclick="saveAcc()">💾 Lưu thay đổi</button>
-      <button class="mbtn mbtn-sec" onclick="resetAcc()" style="margin-top:8px">🔄 Reset mặc định</button>`;
+// EDIT TEXT DIRECTLY
+function setupEditableTexts(){
+  const ht = document.getElementById('heroTitle');
+  const hs = document.getElementById('heroSub');
+  if (isAdmin) {
+    ht.onclick = () => openTextEdit('heroTitle', texts.heroTitle);
+    hs.onclick = () => openTextEdit('heroSub', texts.heroSub);
+    ht.classList.add('editable');
+    hs.classList.add('editable');
+  } else {
+    ht.onclick = null; hs.onclick = null;
+    ht.classList.remove('editable'); hs.classList.remove('editable');
   }
 }
 
+window.openTextEdit = (key, val) => {
+  editingText = key;
+  document.getElementById('textContent').value = (val||'').replace(/<[^>]+>/g,'');
+  document.getElementById('textModal').classList.add('show');
+};
+
+window.saveText = async () => {
+  const val = document.getElementById('textContent').value.trim();
+  if (!val) return window.notif('Nhập nội dung', true);
+  await update(ref(db, DB+'/texts'), { [editingText]: val });
+  texts[editingText] = val;
+  renderTexts();
+  setupEditableTexts();
+  closeM('textModal');
+  window.notif('✅ Đã lưu!');
+};
+
+// EDIT ITEM
 window.openItem = (id, type) => {
-  editingId = id;
-  editingType = type;
+  if (!isAdmin) return;
+  editingId = id; editingType = type;
   const list = type === 'product' ? products : works;
   document.getElementById('itemTitle').textContent = id ? '✏️ Sửa' : '➕ Thêm mới';
   const pv = document.getElementById('itemPreview');
@@ -405,8 +507,7 @@ window.openItem = (id, type) => {
 };
 
 async function upImg(file){
-  const fd = new FormData();
-  fd.append('image', file);
+  const fd = new FormData(); fd.append('image', file);
   const r = await fetch(`https://api.imgbb.com/1/upload?key=${IMG_KEY}`,{method:'POST',body:fd});
   const d = await r.json();
   if (d.success) return d.data.url;
@@ -420,7 +521,7 @@ window.uploadItemImg = async (inp) => {
     const url = await upImg(f);
     document.getElementById('itemImg').value = url;
     const pv = document.getElementById('itemPreview');
-    pv.src = url; pv.style.display = 'block';
+    pv.src = url; pv.style.display='block';
     window.notif('✅ Xong!');
   } catch(e) { window.notif('Lỗi: '+e.message, true); }
 };
@@ -439,7 +540,6 @@ window.saveItem = async () => {
     window.notif('✅ Đã thêm!');
   }
   closeM('itemModal');
-  setTimeout(()=>renderTab(),400);
 };
 
 window.delItem = async (id, type) => {
@@ -447,60 +547,55 @@ window.delItem = async (id, type) => {
   const path = type === 'product' ? 'products' : 'works';
   await remove(ref(db, DB+'/'+path+'/'+id));
   window.notif('Đã xóa');
-  setTimeout(()=>renderTab(),400);
 };
 
-window.saveInfo = async () => {
-  const title = document.getElementById('infoTitle').value.trim();
-  const hero = document.getElementById('infoHero').value.trim();
-  const sub = document.getElementById('infoSub').value.trim();
-  await update(ref(db, DB+'/site'), {title, hero, sub});
-  siteInfo = {...siteInfo, title, hero, sub};
-  window.notif('✅ Đã lưu!');
-  renderHeader();
+// PRESENTER
+window.openPresenter = (id) => {
+  editingPresenterId = id;
+  document.getElementById('prTitle').textContent = id ? '✏️ Sửa' : '➕ Thêm người';
+  if (id) {
+    const p = presenters.find(x => x.id === id);
+    document.getElementById('prName').value = p.name || '';
+    document.getElementById('prRole').value = p.role || '';
+  } else {
+    document.getElementById('prName').value = '';
+    document.getElementById('prRole').value = '';
+  }
+  document.getElementById('presenterModal').classList.add('show');
 };
 
-window.saveAcc = async () => {
-  const nu = document.getElementById('newUser').value.trim();
-  const op = document.getElementById('oldPass').value;
-  const np = document.getElementById('newPass').value;
-  const cp = document.getElementById('confPass').value;
-  const vp = siteInfo.adminPass || DEF_PASS;
-  if (op !== vp) return window.notif('Mật khẩu cũ sai!', true);
-  if (!nu) return window.notif('Nhập tên mới', true);
-  if (!np || np.length < 4) return window.notif('MK tối thiểu 4 ký tự', true);
-  if (np !== cp) return window.notif('MK nhập lại không khớp!', true);
-  await update(ref(db, DB+'/site'), {adminUser:nu, adminPass:np});
-  siteInfo.adminUser = nu; siteInfo.adminPass = np;
-  window.notif('✅ Đã đổi tài khoản!');
-  renderTab();
+window.savePresenter = async () => {
+  const name = document.getElementById('prName').value.trim();
+  const role = document.getElementById('prRole').value.trim();
+  if (!name) return window.notif('Nhập tên', true);
+  if (editingPresenterId) {
+    await update(ref(db, DB+'/presenters/'+editingPresenterId), {name, role});
+    window.notif('✅ Đã sửa!');
+  } else {
+    await push(ref(db, DB+'/presenters'), {name, role, order:Date.now()});
+    window.notif('✅ Đã thêm!');
+  }
+  closeM('presenterModal');
 };
 
-window.resetAcc = async () => {
-  if (!confirm('Reset về phucdz / phc51580?')) return;
-  await update(ref(db, DB+'/site'), {adminUser:DEF_USER, adminPass:DEF_PASS});
-  siteInfo.adminUser = DEF_USER; siteInfo.adminPass = DEF_PASS;
-  window.notif('Đã reset');
-  renderTab();
+window.delPresenter = async (id) => {
+  if (!confirm('Xóa người này?')) return;
+  await remove(ref(db, DB+'/presenters/'+id));
+  window.notif('Đã xóa');
 };
 
-// INIT + SEED DATA
+// INIT + SEED
 renderHeader();
+renderTexts();
 
 setTimeout(async () => {
   try {
-    const snap = await get(ref(db, DB+'/products'));
-    if (!snap.val()) {
-      for (let i = 0; i < SEED_PRODUCTS.length; i++) {
-        await push(ref(db, DB+'/products'), {...SEED_PRODUCTS[i], order:i});
-      }
-    }
-    const snap2 = await get(ref(db, DB+'/works'));
-    if (!snap2.val()) {
-      for (let i = 0; i < SEED_WORKS.length; i++) {
-        await push(ref(db, DB+'/works'), {...SEED_WORKS[i], order:i});
-      }
-    }
+    const s1 = await get(ref(db, DB+'/products'));
+    if (!s1.val()) for (let i=0;i<SEED_PRODUCTS.length;i++) await push(ref(db, DB+'/products'), {...SEED_PRODUCTS[i], order:i});
+    const s2 = await get(ref(db, DB+'/works'));
+    if (!s2.val()) for (let i=0;i<SEED_WORKS.length;i++) await push(ref(db, DB+'/works'), {...SEED_WORKS[i], order:i});
+    const s3 = await get(ref(db, DB+'/presenters'));
+    if (!s3.val()) for (let i=0;i<SEED_PRESENTERS.length;i++) await push(ref(db, DB+'/presenters'), {...SEED_PRESENTERS[i], order:i});
   } catch(e) { console.log('Seed error:', e); }
 }, 1200);
 </script>
