@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+body{background:#fff;color:#111;line-height:1.5;-webkit-font-smoothing:antialiased}
+header{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-bottom:1px solid #eaeaea;z-index:100;padding:16px 24px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:20px;font-weight:800;letter-spacing:-.5px}
+.logo span{color:#666;font-weight:400}
+.login-btn{padding:8px 16px;background:#111;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600;transition:.2s}
+.login-btn:hover{background:#333}
+.user-btn{padding:8px 16px;background:#f5f5f5;color:#111;border:1px solid #eaeaea;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600}
+
+main{padding-top:80px}
+section{padding:80px 24px;max-width:1200px;margin:0 auto}
+.hero{padding:120px 24px 80px;text-align:center}
+.hero h1{font-size:56px;font-weight:900;letter-spacing:-2px;line-height:1.1;margin-bottom:20px}
+.hero h1 span{color:#999}
+.hero p{font-size:18px;color:#666;max-width:600px;margin:0 auto 32px}
+.hero .cta{display:inline-flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.btn{padding:14px 28px;background:#111;color:#fff;border:none;border-radius:8px;cursor:pointer;font-size:15px;font-weight:600;text-decoration:none;transition:.2s}
+.btn:hover{background:#333;transform:translateY(-2px)}
+.btn-sec{background:#fff;color:#111;border:1.5px solid #111}
+.btn-sec:hover{background:#111;color:#fff}
+
+h2{font-size:32px;font-weight:800;letter-spacing:-.5px;margin-bottom:8px}
+h2 span{color:#999}
+.subtitle{color:#666;margin-bottom:40px;font-size:15px}
+.divider{width:60px;height:3px;background:#111;margin-bottom:24px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px}
+.card{background:#fff;border:1px solid #eaeaea;border-radius:12px;overflow:hidden;transition:.3s;cursor:pointer}
+.card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.08);border-color:#111}
+.card .img{width:100%;aspect-ratio:4/3;background:#f5f5f5;overflow:hidden}
+.card .img img{width:100%;height:100%;object-fit:cover;display:block}
+.card .body{padding:20px}
+.card h3{font-size:17px;font-weight:700;margin-bottom:6px}
+.card p{font-size:14px;color:#666;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+footer{background:#111;color:#fff;padding:60px 24px 30px;text-align:center}
+footer h3{font-size:24px;font-weight:800;margin-bottom:8px}
+footer p{color:#999;font-size:14px;margin-bottom:24px}
+
+.mbg{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:999;padding:16px}
+.mbg.show{display:flex}
+.mod{background:#fff;border-radius:16px;padding:28px;max-width:480px;width:100%;max-height:90vh;overflow-y:auto}
+.mod h2{font-size:22px;margin-bottom:18px;letter-spacing:-.3px}
+.mod input,.mod textarea,.mod select{width:100%;padding:12px 14px;border:1.5px solid #eaeaea;border-radius:8px;font-size:14px;margin-bottom:12px;font-family:inherit;background:#fff}
+.mod input:focus,.mod textarea:focus,.mod select:focus{outline:none;border-color:#111}
+.mod textarea{min-height:80px;resize:vertical}
+.mbtn{width:100%;padding:12px;backgroundpx:#111;color:#fff;border:none;border-radius:8px;font-weight:600;cursor:pointer;font-size:14px;;margin-top:4px;transition:.2s}
+.mbtn:hover{background:#333}
+.mbtn-sec{background:#fff;color:#111;displayborder:1.5px solid #eaeaea}
+.mbtn-sec:hover{background:#f5f5f5;color:#111}
+.m:btn-danger{background:#fff;color:#dc2626;border:1.5px solid #fecaca}
+.mbtn-danger:hover{background:#fef2f2}
+
+.tabs{display:flex;gap:8px;margin-bottom:20px;border-bottom:1px solid #eaeaea;padding-bottom:12px;flex-wrap:wrap}
+.tabs button{padding:8px 16px;background:transparent;border:none;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600;color:#666}
+.tabs button.active{background:#111;color:#fff}
+
+.item-row{background:#fafafa;padding:14px;border-radius:10px;margin-bottom:10flex;justify-content:space-between;align-items:center;gap:10px;border:1px solid #eaeaea}
+.item-row .info{flex:1;min-width:0}
+.item-row h4{font-size:14px;font-weight:700;margin-bottom:4px}
+.item-row p{font-size:12px;color:#888;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.item-row .acts{display:flex;gap:6px;flex-shrink:0}
+.item-row button{padding:6px 12px;border:none;border-radius:6px;cursor:pointer;font-size:12px;font-weight:600}
+.ib{background:#111;color:#fff}
+.ib-red{background:#dc2626;color:#fff}
+.ib-gray{background:#eaeaea;color:#111}
+
+.upload-box{background:#fafafa;border:2px dashed #ddd;border-radius:10px;padding:16px;text-align:center;cursor:pointer;margin-bottom:12px;font-size:13px;color:#666;transition:.2s}
+.upload-box:hover{border-color:#111;color:#111}
+
+.ntf{position:fixed;top:80px;right:24px;background:#111;color:#fff;padding:14px 20px;border-radius:10px;font-weight:600;font-size:13px;z-index:9999;animation:sl .3s}
+.ntf.err{background:#dc2626}
+@keyframes sl{from{transform:translateX(400px);opacity:0}to{transform:translateX(0);opacity:1}}
+
+.empty{text-align:center;color:#999;padding:60px 20px;font-style:italic;font-size:14px}
+
+@media(max-width:640px){
+  .hero h1{font-size:36px;letter-spacing:-1px}
+  .hero p{font-size:16px}
+  section{padding:60px 20px}
+  h2{font-size:26px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Portfolio<span>.Dev</span></div>
+  <div id="authArea">
+    <button class="login-btn" onclick="showLogin()">🔐 Đăng nhập</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>Sản phẩm <span>& Tác phẩm</span></h1>
+    <p>Chào mừng bạn đến với portfolio của tôi. Khám phá các sản phẩm và tác phẩm nổi bật.</p>
+    <div class="cta">
+      <a href="#products" class="btn">Xem sản phẩm</a>
+      <a href="#works" class="btn btn-sec">Xem tác phẩm</a>
+    </div>
+  </section>
+
+  <section id="products">
+    <div class="divider"></div>
+    <h2>Sản phẩm <span>/ Products</span></h2>
+    <p class="subtitle">Những sản phẩm tôi đã và đang phát triển</p>
+    <div class="grid" id="productGrid"></div>
+  </section>
+
+  <section id="works">
+    <div class="divider"></div>
+    <h2>Tác phẩm <span>/ Works</span></h2>
+    <p class="subtitle">Những dự án và tác phẩm đã hoàn thành</p>
+    <div class="grid" id="workGrid"></div>
+  </section>
+</main>
+
+<footer>
+  <h3>Portfolio.Dev</h3>
+  <p>Cảm ơn bạn đã ghé thăm · © 2026</p>
+</footer>
+
+<!-- LOGIN MODAL -->
+<div class="mbg" id="loginModal"><div class="mod">
+<h2>🔐 Đăng nhập Admin</h2>
+<input id="loginUser" placeholder="Tên đăng nhập">
+<input id="loginPass" type="password" placeholder="Mật khẩu">
+<button class="mbtn" onclick="doLogin()">Đăng nhập</button>
+<button class="mbtn mbtn-sec" onclick="closeM('loginModal')" style="margin-top:8px">Hủy</button>
+</div></div>
+
+<!-- ADMIN MODAL -->
+<div class="mbg" id="adminModal"><div class="mod" style="max-width:560px">
+<h2>⚙️ Admin Panel</h2>
+<div class="tabs">
+<button onclick="showTab('prod')" id="tbProd" class="active">📦 Sản phẩm</button>
+<button onclick="showTab('work')" id="tbWork">🎨 Tác phẩm</button>
+<button onclick="showTab('info')" id="tbInfo">📝 Thông tin</button>
+<button onclick="showTab('acc')" id="tbAcc">🔑 Tài khoản</button>
+</div>
+<div id="tabContent"></div>
+<div style="display:flex;gap:8px;margin-top:16px">
+<button class="mbtn mbtn-sec" onclick="logout()" style="flex:1">🚪 Đăng xuất</button>
+<button class="mbtn mbtn-sec" onclick="closeM('adminModal')" style="flex:1">Đóng</button>
+</div>
+</div></div>
+
+<!-- ITEM EDIT MODAL -->
+<div class="mbg" id="itemModal"><div class="mod">
+<h2 id="itemTitle">✏️ Chỉnh sửa</h2>
+<div class="upload-box" onclick="document.getElementById('itemFile').click()">📷 Chọn ảnh từ máy</div>
+<input type="file" id="itemFile" accept="image/*" style="display:none" onchange="uploadItemImg(this)">
+<input id="itemImg" placeholder="Hoặc dán link ảnh">
+<img id="itemPreview" style="width:100%;border-radius:8px;margin-bottom:12px;display:none">
+<input id="itemName" placeholder="Tên">
+<textarea id="itemDesc" placeholder="Mô tả"></textarea>
+<button class="mbtn" onclick="saveItem()">💾 Lưu</button>
+<button class="mbtn mbtn-sec" onclick="closeM('itemModal')" style="margin-top:8px">Hủy</button>
+</div></div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getDatabase, ref, set, get, push, update, onValue, remove } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+
+const cfg = {
+  apiKey: "AIzaSyAOKxix32T2rC9_TrF9mk6socuR0YCcVno",
+  authDomain: "mrphuc-51580.firebaseapp.com",
+  databaseURL: "https://mrphuc-51580-default-rtdb.firebaseio.com",
+  projectId: "mrphuc-51580",
+  storageBucket: "mrphuc-51580.firebasestorage.app",
+  messagingSenderId: "922607657180",
+  appId: "1:922607657180:web:2d1f482bd5aa562214d419"
+};
+const IMG_KEY = "11fa26a3d2a300961577fa631bfc603c";
+const DEF_USER = "phucdz", DEF_PASS = "phc51580";
+const DB = "portfolio_site_v1", SK = "portfolio_session";
+
+const app = initializeApp(cfg);
+const db = getDatabase(app);
+
+let isAdmin = false;
+let currentTab = 'prod';
+let editingId = null;
+let editingType = 'product';
+let products = [];
+let works = [];
+let siteInfo = { title:"Portfolio.Dev", hero:"Sản phẩm & Tác phẩm", sub:"Chào mừng bạn đến với portfolio của tôi.", adminUser:DEF_USER, adminPass:DEF_PASS };
+
+// Ảnh mẫu đẹp
+const PLACEHOLDER = [
+  "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80",
+  "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800&q=80",
+  "https://images.unsplash.com/photo-1620121692029-d088224ddc74?w=800&q=80",
+  "https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=800&q=80",
+  "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80",
+  "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&q=80"
+];
+
+window.notif = (msg, err=false) => {
+  const el = document.createElement('div');
+  el.className = 'ntf' + (err?' err':'');
+  el.textContent = msg;
+  document.body.appendChild(el);
+  setTimeout(()=>el.remove(),2500);
+};
+
+window.closeM = (id) => document.getElementById(id).classList.remove('show');
+
+// LOAD DATA
+onValue(ref(db, DB+'/site'), (s) => {
+  const d = s.val();
+  if (d) siteInfo = {...siteInfo, ...d};
+  renderHeader();
+});
+
+onValue(ref(db, DB+'/products'), (s) => {
+  const d = s.val();
+  products = d ? Object.entries(d).map(([id,p])=>({id,...p})).sort((a,b)=>(a.order||0)-(b.order||0)) : [];
+  renderProducts();
+  if (currentTab==='prod' && document.getElementById('adminModal').classList.contains('show')) renderTab();
+});
+
+onValue(ref(db, DB+'/works'), (s) => {
+  const d = s.val();
+  works = d ? Object.entries(d).map(([id,w])=>({id,...w})).sort((a,b)=>(a.order||0)-(b.order||0)) : [];
+  renderWorks();
+  if (currentTab==='work' && document.getElementById('adminModal').classList.contains('show')) renderTab();
+});
+
+function renderHeader(){
+  document.querySelector('.hero h1').innerHTML = (siteInfo.hero||'Sản phẩm & Tác phẩm').replace('&','<span>&</span>');
+  document.querySelector('.hero p').textContent = siteInfo.sub || '';
+  document.title = siteInfo.title || 'Portfolio';
+  document.querySelector('.logo').innerHTML = (siteInfo.title||'Portfolio.Dev').replace('.','<span>.</span>') + '';
+}
+
+function renderProducts(){
+  const el = document.getElementById('productGrid');
+  if (!products.length) { el.innerHTML = '<div class="empty">Chưa có sản phẩm nào</div>'; return; }
+  el.innerHTML = products.map(p => `
+    <div class="card">
+      <div class="img"><img src="${p.img || PLACEHOLDER[0]}" onerror="this.src='${PLACEHOLDER[0]}'"></div>
+      <div class="body">
+        <h3>${p.name||'Sản phẩm'}</h3>
+        <p>${p.desc||''}</p>
+      </div>
+    </div>`).join('');
+}
+
+function renderWorks(){
+  const el = document.getElementById('workGrid');
+  if (!works.length) { el.innerHTML = '<div class="empty">Chưa có tác phẩm nào</div>'; return; }
+  el.innerHTML = works.map(w => `
+    <div class="card">
+      <div class="img"><img src="${w.img || PLACEHOLDER[1]}" onerror="this.src='${PLACEHOLDER[1]}'"></div>
+      <div class="body">
+        <h3>${w.name||'Tác phẩm'}</h3>
+        <p>${w.desc||''}</p>
+      </div>
+    </div>`).join('');
+}
+
+// AUTH
+window.showLogin = () => {
+  document.getElementById('loginModal').classList.add('show');
+  document.getElementById('loginUser').value = '';
+  document.getElementById('loginPass').value = '';
+};
+
+window.doLogin = () => {
+  const u = document.getElementById('loginUser').value.trim();
+  const p = document.getElementById('loginPass').value;
+  const vu = siteInfo.adminUser || DEF_USER;
+  const vp = siteInfo.adminPass || DEF_PASS;
+  if (u !== vu || p !== vp) return window.notif('Sai tên hoặc mật khẩu!',true);
+  localStorage.setItem(SK,'1');
+  isAdmin = true;
+  closeM('loginModal');
+  renderHeader();
+  window.notif('👑 Chào Admin!');
+  setTimeout(() => {
+    document.getElementById('adminModal').classList.add('show');
+    showTab('prod');
+  }, 300);
+};
+
+window.logout = () => {
+  localStorage.removeItem(SK);
+  isAdmin = false;
+  closeM('adminModal');
+  renderHeader();
+  window.notif('Đã đăng xuất');
+};
+
+function renderHeader(){
+  document.querySelector('.hero h1').innerHTML = (siteInfo.hero||'Sản phẩm & Tác phẩm').replace('&','<span>&</span>');
+  document.querySelector('.hero p').textContent = siteInfo.sub || '';
+  document.title = siteInfo.title || 'Portfolio';
+  document.querySelector('.logo').innerHTML = (siteInfo.title||'Portfolio.Dev').replace('.','<span>.</span>');
+  const area = document.getElementById('authArea');
+  if (isAdmin) {
+    area.innerHTML = `<button class="user-btn" onclick="openAdmin()">⚙️ Admin Panel</button>`;
+  } else {
+    area.innerHTML = `<button class="login-btn" onclick="showLogin()">🔐 Đăng nhập</button>`;
+  }
+}
+
+window.openAdmin = () => {
+  document.getElementById('adminModal').classList.add('show');
+  showTab('prod');
+};
+
+if (localStorage.getItem(SK)==='1') isAdmin = true;
+
+window.showTab = (t) => {
+  currentTab = t;
+  ['prod','work','info','acc'].forEach(x => {
+    const el = document.getElementById('tb'+x.charAt(0).toUpperCase()+x.slice(1));
+    if (el) el.classList.toggle('active', x===t);
+  });
+  renderTab();
+};
+
+function renderTab(){
+  const c = document.getElementById('tabContent');
+  if (currentTab==='prod') {
+    c.innerHTML = `
+      <button class="mbtn" onclick="openItem(null,'product')" style="margin-bottom:16px">➕ Thêm sản phẩm</button>
+      ${!products.length?'<div class="empty">Chưa có sản phẩm</div>':products.map(p=>`
+        <div class="item-row">
+          <div class="info"><h4>${p.name||'Chưa đặt tên'}</h4><p>${p.desc||''}</p></div>
+          <div class="acts">
+            <button class="ib" onclick="openItem('${p.id}','product')">✏️</button>
+            <button class="ib-red" onclick="delItem('${p.id}','product')">🗑</button>
+          </div>
+        </div>`).join('')}`;
+  } else if (currentTab==='work') {
+    c.innerHTML = `
+      <button class="mbtn" onclick="openItem(null,'work')" style="margin-bottom:16px">➕ Thêm tác phẩm</button>
+      ${!works.length?'<div class="empty">Chưa có tác phẩm</div>':works.map(w=>`
+        <div class="item-row">
+          <div class="info"><h4>${w.name||'Chưa đặt tên'}</h4><p>${w.desc||''}</p></div>
+          <div class="acts">
+            <button class="ib" onclick="openItem('${w.id}','work')">✏️</button>
+            <button class="ib-red" onclick="delItem('${w.id}','work')">🗑</button>
+          </div>
+        </div>`).join('')}`;
+  } else if (currentTab==='info') {
+    c.innerHTML = `
+      <p style="font-size:13px;color:#666;margin-bottom:14px">Sửa thông tin hiển thị trên trang</p>
+      <input id="infoTitle" placeholder="Tên web" value="${siteInfo.title||''}">
+      <input id="infoHero" placeholder="Tiêu đề chính" value="${siteInfo.hero||''}">
+      <textarea id="infoSub" placeholder="Mô tả ngắn">${siteInfo.sub||''}</textarea>
+      <button class="mbtn" onclick="saveInfo()">💾 Lưu</button>`;
+  } else if (currentTab==='acc') {
+    c.innerHTML = `
+      <p style="font-size:13px;color:#666;margin-bottom:14px">Đổi tài khoản admin</p>
+      <div style="background:#fafafa;padding:12px;border-radius:8px;margin-bottom:14px;font-size:13px">
+        <p style="margin-bottom:4px">Tên hiện tại: <b>${siteInfo.adminUser||DEF_USER}</b></p>
+        <p>Mật khẩu: <b>${'•'.repeat((siteInfo.adminPass||DEF_PASS).length)}</b></p>
+      </div>
+      <input id="newUser" placeholder="Tên đăng nhập mới">
+      <input id="oldPass" type="password" placeholder="Mật khẩu cũ">
+      <input id="newPass" type="password" placeholder="Mật khẩu mới">
+      <input id="confPass" type="password" placeholder="Nhập lại mật khẩu mới">
+      <button class="mbtn" onclick="saveAcc()">💾 Lưu thay đổi</button>
+      <button class="mbtn mbtn-sec" onclick="resetAcc()" style="margin-top:8px">🔄 Reset mặc định</button>`;
+  }
+}
+
+// ITEM
+window.openItem = (id, type) => {
+  editingId = id;
+  editingType = type;
+  const list = type === 'product' ? products : works;
+  document.getElementById('itemTitle').textContent = id ? '✏️ Sửa' : '➕ Thêm mới';
+  const pv = document.getElementById('itemPreview');
+  if (id) {
+    const it = list.find(x => x.id === id);
+    document.getElementById('itemName').value = it.name || '';
+    document.getElementById('itemDesc').value = it.desc || '';
+    document.getElementById('itemImg').value = it.img || '';
+    if (it.img) { pv.src = it.img; pv.style.display='block'; } else pv.style.display='none';
+  } else {
+    document.getElementById('itemName').value = '';
+    document.getElementById('itemDesc').value = '';
+    const ph = PLACEHOLDER[Math.floor(Math.random()*PLACEHOLDER.length)];
+    document.getElementById('itemImg').value = ph;
+    pv.src = ph; pv.style.display='block';
+  }
+  document.getElementById('itemModal').classList.add('show');
+};
+
+async function uploadImg(file){
+  const fd = new FormData();
+  fd.append('image', file);
+  const r = await fetch(`https://api.imgbb.com/1/upload?key=${IMG_KEY}`, {method:'POST',body:fd});
+  const d = await r.json();
+  if (d.success) return d.data.url;
+  throw new Error('Lỗi upload');
+}
+
+window.uploadItemImg = async (inp) => {
+  const f = inp.files[0]; if (!f) return;
+  window.notif('⏳ Đang tải ảnh...');
+  try {
+    const url = await uploadImg(f);
+    document.getElementById('itemImg').value = url;
+    const pv = document.getElementById('itemPreview');
+    pv.src = url; pv.style.display = 'block';
+    window.notif('✅ Xong!');
+  } catch(e) { window.notif('Lỗi: '+e.message, true); }
+};
+
+window.saveItem = async () => {
+  const name = document.getElementById('itemName').value.trim();
+  const desc = document.getElementById('itemDesc').value.trim();
+  let img = document.getElementById('itemImg').value.trim();
+  if (!name) return window.notif('Nhập tên', true);
+  if (!img) img = PLACEHOLDER[Math.floor(Math.random()*PLACEHOLDER.length)];
+  const path = editingType === 'product' ? 'products' : 'works';
+  if (editingId) {
+    await update(ref(db, DB+'/'+path+'/'+editingId), {name, desc, img});
+    window.notif('✅ Đã sửa!');
+  } else {
+    await push(ref(db, DB+'/'+path), {name, desc, img, order:Date.now()});
+    window.notif('✅ Đã thêm!');
+  }
+  closeM('itemModal');
+  setTimeout(()=>renderTab(),400);
+};
+
+window.delItem = async (id, type) => {
+  if (!confirm('Xóa mục này?')) return;
+  const path = type === 'product' ? 'products' : 'works';
+  await remove(ref(db, DB+'/'+path+'/'+id));
+  window.notif('Đã xóa');
+  setTimeout(()=>renderTab(),400);
+};
+
+// INFO
+window.saveInfo = async () => {
+  const title = document.getElementById('infoTitle').value.trim();
+  const hero = document.getElementById('infoHero').value.trim();
+  const sub = document.getElementById('infoSub').value.trim();
+  await update(ref(db, DB+'/site'), {title, hero, sub});
+  siteInfo = {...siteInfo, title, hero, sub};
+  window.notif('✅ Đã lưu!');
+  renderHeader();
+};
+
+// ACC
+window.saveAcc = async () => {
+  const nu = document.getElementById('newUser').value.trim();
+  const op = document.getElementById('oldPass').value;
+  const np = document.getElementById('newPass').value;
+  const cp = document.getElementById('confPass').value;
+  const vp = siteInfo.adminPass || DEF_PASS;
+  if (op !== vp) return window.notif('Mật khẩu cũ sai!', true);
+  if (!nu) return window.notif('Nhập tên mới', true);
+  if (!np || np.length < 4) return window.notif('MK tối thiểu 4 ký tự', true);
+  if (np !== cp) return window.notif('MK nhập lại không khớp!', true);
+  await update(ref(db, DB+'/site'), {adminUser:nu, adminPass:np});
+  siteInfo.adminUser = nu; siteInfo.adminPass = np;
+  window.notif('✅ Đã đổi tài khoản!');
+  renderTab();
+};
+
+window.resetAcc = async () => {
+  if (!confirm('Reset về phucdz / phc51580?')) return;
+  await update(ref(db, DB+'/site'), {adminUser:DEF_USER, adminPass:DEF_PASS});
+  siteInfo.adminUser = DEF_USER; siteInfo.adminPass = DEF_PASS;
+  window.notif('Đã reset');
+  renderTab();
+};
+
+// INIT
+renderHeader();
+
+// Nếu chưa có data → tạo mẫu 3 sản phẩm + 3 tác phẩm
+setTimeout(async () => {
+  const snap = await get(ref(db, DB+'/products'));
+  if (!snap.val()) {
+    const samples = [
+      {name:"Sản phẩm mẫu 1", desc:"Mô tả sản phẩm mẫu 1 — đây là sản phẩm demo.", img:PLACEHOLDER[0]},
+      {name:"Sản phẩm mẫu 2", desc:"Mô tả sản phẩm mẫu 2 — bạn có thể sửa trong admin.", img:PLACEHOLDER[1]},
+      {name:"Sản phẩm mẫu 3", desc:"Mô tả sản phẩm mẫu 3 — thêm/sửa/xóa tùy ý.", img:PLACEHOLDER[2]}
+    ];
+    for (const s of samples) await push(ref(db, DB+'/products'), {...s, order:Date.now()+Math.random()});
+  }
+  const snap2 = await get(ref(db, DB+'/works'));
+  if (!snap2.val()) {
+    const samples = [
+      {name:"Tác phẩm 1", desc:"Dự án mẫu 1 — portfolio demo.", img:PLACEHOLDER[3]},
+      {name:"Tác phẩm 2", desc:"Dự án mẫu 2 — bạn tự chỉnh sửa.", img:PLACEHOLDER[4]},
+      {name:"Tác phẩm 3", desc:"Dự án mẫu 3 — thiết kế đẹp mắt.", img:PLACEHOLDER[5]}
+    ];
+    for (const s of samples) await push(ref(db, DB+'/works'), {...s, order:Date.now()+Math.random()});
+  }
+}, 1000);
+</script>
+</body>
+</html>
